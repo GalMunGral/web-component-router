@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <nav>
+      <a is="router-link" href="/red">Red</a>
+      <a is="router-link" href="/green">Green</a>
+      <a is="router-link" href="/blue">Blue</a>
+    </nav>
+    <router-root path="/red"></router-root>
+
+    <template id='main-template'>
+      <style>
+        #main {
+          flex-grow: 1;
+        }
+      </style>
+      <div id="main"></div>
+    </template>
+
+    <script type="module" src="LocationService.js"></script>
+    <script type="module" src="Router.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
