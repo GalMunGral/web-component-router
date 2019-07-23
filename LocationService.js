@@ -1,16 +1,18 @@
 export default class LocationService {
   constructor() {
     this._path = window.location.pathname;
+    this.observers = [];
     Object.defineProperty(this, 'path', {
-      get() { return this._path },
+      get() {
+        return this._path
+      },
       set(val) {
         this._path = val;
-        this.observers.forEach(ob => {
-          ob.updateLocation(val);
+        this.observers.forEach(obs => {
+          obs.updateLocation(val);
         })
       }
     })
-    this.observers = [];
   }
 
   subscribe(observer) {
@@ -18,7 +20,7 @@ export default class LocationService {
     observer.updateLocation(this.path); // Notify immediately
   }
 
-  goTo(path) {
+  goto(path) {
     this.path = path;
     window.history.pushState(null, 'test', path);
   }
