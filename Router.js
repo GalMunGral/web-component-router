@@ -69,7 +69,7 @@ customElements.define('router-switch', Router);
 class RouterLink extends HTMLElement {
   constructor() {
     super();
-    this.path = this.getAttribute('href');
+    this.path = this.getAttribute('to');
     this.onclick = () => {
       Router.updatePath(this.path);
     }    
