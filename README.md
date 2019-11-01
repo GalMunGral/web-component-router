@@ -7,7 +7,7 @@ To define routes:
     <div path="/some-other-path"></div>
 </router-switch>
 ```
-To link ot routes:
+To link to routes:
 ```html
 <router-link to="/some-path"></router-link>
 ```
