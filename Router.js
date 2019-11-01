@@ -34,15 +34,24 @@ class Router extends HTMLElement {
       console.warn('You have multiple `router-root` instances. Only the first one will be used');
       return;
     }
-    this.attachShadow({ mode: 'open' });
     Router._instance = this;
+
+    this.attachShadow({ mode: 'open' });
+    
     this.routes = new Map();
     for (let element of this.children) {
       let path = element.getAttribute('path');
       this.routes.set(path, element);
     }
-    Router.path = this.getAttribute('default');
-    this.load(Router.path);
+
+    // Handle back/forward
+    window.addEventListener('popstate', () => {
+      this.load(window.location.pathname);
+    });
+
+    // Initialize
+    const defaultPath = this.getAttribute('default');
+    Router.updatePath(defaultPath);
   }
 
   load(path) {
