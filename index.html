@@ -1,16 +1,43 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="/web-component-router/LocationService.js"></script>
-    <script type="module" src="/web-component-router/Router.js"></script>
-    <script type="module" src="/init.js"></script>
+    <script type="module" src="/Router.js"></script>
   </head>
   <body>
-    <nav>
-      <a is="router-link" href="/red">Red</a>
-      <a is="router-link" href="/green">Green</a>
-      <a is="router-link" href="/blue">Blue</a>
+    <nav id="nav">
+      <router-link href="/red">Red</router-link>
+      <router-link href="/green">Green</router-link>
+      <router-link href="/blue">Blue</router-link>
     </nav>
-    <router-root path="/red"></router-root>
+    <router-switch id="main" default="/red">
+      <div id="solid-color" path="/red">
+        <style>
+          #solid-color {
+            background: red; opacity: 0.5;
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+          }
+        </style>
+      </div>
+
+      <div id="solid-color" path="/green">
+        <style>
+          #solid-color {
+            background: green; opacity: 0.5;
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+          }
+        </style>
+      </div>
+      <div id="solid-color" path="/blue">
+        <style>
+          #solid-color {
+            background: blue; opacity: 0.5;
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+          }
+        </style>
+      </div>
+    </router-switch>    
   </body>
 </html>

@@ -1,0 +1,31 @@
+body {
+    position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0;
+    display: flex;
+    flex-direction: column;
+}
+#nav {
+    flex: 0 0 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 5px 5px 5px grey ;
+    background: #EEEEEE;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 2px;
+    margin: 10px;
+}
+router-link {
+    cursor: pointer;
+}
+router-link:hover {
+    text-decoration: underline;
+}
+#main {
+    flex: 1;
+    padding: 10px;
+    position: relative;
+    margin: 10px;
+}
